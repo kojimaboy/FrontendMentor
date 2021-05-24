@@ -19,7 +19,6 @@
       --white: hsl(0, 0%, 100%);
       --main-paragraph: hsl(0, 0%, 100%, 0.75);
       --stat-headings: hsl(0,0%, 100%, 0.6);
-
     }
     .gridWrap{
       display:grid;
@@ -27,20 +26,26 @@
 
     }
     .textArea{
+      display:grid;
       color: var(--white);
       background-color: var(--dark-desaturated-blue);
-      grid-template-columns: repeat(3,1fr);
+      grid-template-rows: repeat(3,1fr);
       padding: 3rem;
+      grid-column-start: 1;
     }
     .description{
+      display:grid;
       color:var(--main-paragraph);
       font-size: 15px;
+      grid-row-start: 2;
     }
     .stats{
-
+      display:grid;
+      grid-row-start: 3;
+      grid-template-columns: repeat(3,1fr);
     }
     .stat{
-
+      display:grid;
     }
     .statHeading{
       color: var(--stat-headings);
@@ -54,10 +59,34 @@
       background: url("./images/image-header-desktop.jpg") var(--soft-violet);
       background-size: cover;
       background-blend-mode: multiply;
+      grid-column-start: 2;
     }  
     
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
+
+    @media only screen and (max-width: 375px) {
+      .gridWrap{
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,auto);
+        align-items: center;
+      }
+      .imageArea{
+        display:grid;
+        grid-row-start: 1;
+        grid-column: 1/2;
+      }
+      .textArea{
+        padding: 1rem;
+        grid-row-start: 2;
+      }
+      .stats{
+        grid-row-start: 3;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3,auto);
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 
